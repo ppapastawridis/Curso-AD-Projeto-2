@@ -1,0 +1,166 @@
+Você foi convidado para criar um sistema de gestão acadêmica que deve calcular as médias semestrais dos alunos.
+Inicialmente, você deve estruturar um programa para ser experimentado em apenas uma disciplina, como projeto piloto.
+
+As notas de cada bimestre são compostas por três atividades avaliativas, com pesos diferentes: prova (peso 5), projeto (3) e lista de exercícios (2).
+Os alunos são considerados aprovados, caso obtenham média semestral superior ou igual a 8.
+Caso obtenham notas entre 7.9 e 5, devem realizar a Avaliação Final (AF) e os alunos com médias abaixo de 5, são considerados reprovados.
+
+Desenvolva um código que ao fim da execução do programa, devem ser exibidas a média geral da turma, a menor e a maior nota. Assim como a quantidade de alunos que foram aprovados, reprovados e que necessitarão realizar AF.
+
+Trabalhe esse código em seu IDE, suba ele para sua conta no GitHub e compartilhe o link desse projeto no campo ao lado para que outros desenvolvedores possam analisá-lo.
+
+Observação: Existem diversas formas de determinar a maior e a menor média. Uma delas é utilizando um conceito que será estudado mais à frente neste curso, chamado vetores. Mas você pode utilizá-lo para a solução desta atividade.
+
+
+
+Etapas do projeto:
+
+1. Definir o passo a passo de execução do programa, por meio de um rascunho; (OK)
+2. Codificar o algoritmo no IDE; (OK)
+3. Salvar uma cópia em texto neste bloco de notas; (OK)
+4. Criar um repositório no GitHub ("Curso-AD-Projeto1"); (OK)
+5. Criar um Git Bash no diretório do projeto; 
+6. Sincronizar o diretório do projeto com o GitHub;
+7. Copia o link do repositório no GitHub e envia o trabalho.
+
+
+
+Rascunho:
+
+
+
+Aluno_Turma111	Nota_Prova_B1	Nota_Projeto_B1	Nota_Lista_B1	Media_B1	Nota_Prova_B2	Nota_Projeto_B2	Nota_Lista_B2	Media_B2	Nota_Prova_B3	Nota_Projeto_B3	Nota_Lista_B3	Media_B3	Media_S1	Situacao_do_Aluno					
+Estudante1				0,00				0,00				0,00	0,00	Reprovado					
+Estudante2				0,00				0,00				0,00	0,00	Reprovado					
+Estudante3				0,00				0,00				0,00	0,00	Reprovado					
+Estudante4				0,00				0,00				0,00	0,00	Reprovado					
+Estudante5				0,00				0,00				0,00	0,00	Reprovado					
+				
+																			
+Media_Geral	0,00																		
+Maximo_Geral	0,00																		
+Minimo_Geral	0,00																		
+Contar_Aprovados	0																		
+Contar_Reprovados	100																		
+Contar_AF	0
+
+
+
+Cópia do código desenvolvido em Java:
+
+import java.util.Scanner;
+public class Avaliacao1Pedro2Notas {
+
+		public static void main(String[] args) {
+			int n = 5;
+			String NomeAluno[] = {"Pedro", "Paulo", "Rogério", "Carlos", "Marcos"};
+			int i;
+			Scanner al = new Scanner(System.in);
+			float NotaProva1[] = new float[n];
+			float NotaProjeto1[] = new float[n];
+			float NotaLista1[] = new float[n];
+			float NotaProva2[] = new float[n];
+			float NotaProjeto2[] = new float[n];
+			float NotaLista2[] = new float[n];
+			float NotaProva3[] = new float[n];
+			float NotaProjeto3[] = new float[n];
+			float NotaLista3[] = new float[n];
+			float MediaB1[] = new float[n];
+			float MediaB2[] = new float[n];
+			float MediaB3[] = new float[n];
+			float MediaSemestre[] = new float[n];
+			float SomaGeral;
+			float MediaGeral;
+			float MinGeral;
+			float MaxGeral;
+			int ContAprovado;
+			int ContAF;
+			int ContReprovado;
+			
+			// Formando a matriz
+			
+			for (i = 0; i < n; i++) {
+				System.out.println("Aluno n° "+(i+1)+": "+NomeAluno[i]);
+				System.out.print("Nota da Prova n°1 = ");
+				NotaProva1[i] = al.nextFloat();
+				System.out.print("Nota do Projeto n°1 = ");
+				NotaProjeto1[i] = al.nextFloat();
+				System.out.print("Nota da Lista n°1 = ");
+				NotaLista1[i] = al.nextFloat();
+				System.out.print("Nota da Prova n°2 = ");
+				NotaProva2[i] = al.nextFloat();
+				System.out.print("Nota do Projeto n°2 = ");
+				NotaProjeto2[i] = al.nextFloat();
+				System.out.print("Nota da Lista n°2 = ");
+				NotaLista2[i] = al.nextFloat();
+				System.out.print("Nota da Prova n°3 = ");
+				NotaProva3[i] = al.nextFloat();
+				System.out.print("Nota do Projeto n°3 = ");
+				NotaProjeto3[i] = al.nextFloat();
+				System.out.print("Nota da Lista n°3 = ");
+				NotaLista3[i] = al.nextFloat();
+				MediaB1[i] = ((NotaProva1[i]*5)+(NotaProjeto1[i]*3)+(NotaLista1[i]*2))/10;
+				System.out.println("Nota da média do 1° bimestre = "+MediaB1[i]);
+				MediaB2[i] = ((NotaProva2[i]*5)+(NotaProjeto2[i]*3)+(NotaLista2[i]*2))/10;
+				System.out.println("Nota da média do 2° bimestre = "+MediaB2[i]);
+				MediaB3[i] = ((NotaProva3[i]*5)+(NotaProjeto3[i]*3)+(NotaLista3[i]*2))/10;
+				System.out.println("Nota da média do 3° bimestre = "+MediaB3[i]);
+				MediaSemestre[i] = (MediaB1[i] + MediaB2[i] + MediaB3[i])/3;
+				System.out.println("Nota da média do semestre = "+MediaSemestre[i]);
+				//Condição de aprovação
+				if(MediaSemestre[i] >= 8) {
+					System.out.println("Aluno n° "+(i+1)+" aprovado"+"\n");
+				} else if(MediaSemestre[i] >= 5) {
+					System.out.println("Aluno n° "+(i+1)+" em avaliação final"+"\n");
+				} else {
+					System.out.println("Aluno n° "+(i+1)+" reprovado"+"\n");
+				}
+			}
+			
+			// Calculando os indicadores de avaliação da turma
+			
+				SomaGeral = 0;
+				MinGeral = MediaSemestre[0];
+				MaxGeral = MediaSemestre[0];
+				ContAprovado = 0;
+				ContAF = 0;
+				ContReprovado = 0;
+				for(i = 0; i < n; i++) {
+				SomaGeral = SomaGeral + MediaSemestre[i];
+				
+				if(MediaSemestre[i] < MinGeral)
+					MinGeral = MediaSemestre[i];
+				
+				if(MediaSemestre[i] > MaxGeral)
+					MaxGeral = MediaSemestre[i];
+				
+				if(MediaSemestre[i] >= 8)
+					{
+					ContAprovado = ContAprovado + 1;
+					} 
+				else if(MediaSemestre[i] >= 5) 
+					{
+					ContAF = ContAF + 1;
+					}
+				else
+					{
+					ContReprovado = ContReprovado + 1;
+					}
+				}
+				MediaGeral = SomaGeral/n;
+				System.out.println("Média Geral da turma = "+MediaGeral);
+				System.out.println("Menor Nota da turma = "+MinGeral);
+				System.out.println("Maior Nota da turma = "+MaxGeral);
+				System.out.println("Número de aprovados = "+ContAprovado);
+				System.out.println("Número de AFs = "+ContAF);
+				System.out.println("Número de reprovados = "+ContReprovado);
+				
+			}
+		}
+
+
+
+
+Repositório no GitHub: https://github.com/ppapastawridis/Curso-AD-Projeto1.git
+
+
