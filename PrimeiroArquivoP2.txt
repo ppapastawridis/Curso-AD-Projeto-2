@@ -18,7 +18,7 @@ Etapas do projeto:
 1. Definir o passo a passo de execução do programa, por meio de um rascunho; (OK)
 2. Codificar o algoritmo no IDE; (OK)
 3. Salvar uma cópia em texto neste bloco de notas; (OK)
-4. Criar um repositório no GitHub ("Curso-AD-Projeto1"); (OK)
+4. Criar um repositório no GitHub ("Curso-AD-Projeto2"); (OK)
 5. Criar um Git Bash no diretório do projeto; 
 6. Sincronizar o diretório do projeto com o GitHub;
 7. Copia o link do repositório no GitHub e envia o trabalho.
@@ -161,6 +161,6 @@ public class Avaliacao1Pedro2Notas {
 
 
 
-Repositório no GitHub: https://github.com/ppapastawridis/Curso-AD-Projeto1.git
+Repositório no GitHub: https://github.com/ppapastawridis/Curso-AD-Projeto2.git
 
 
